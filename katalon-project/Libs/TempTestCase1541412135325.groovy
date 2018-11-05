@@ -15,9 +15,9 @@ DriverCleanerCollector.getInstance().addDriverCleaner(new com.kms.katalon.core.m
 DriverCleanerCollector.getInstance().addDriverCleaner(new com.kms.katalon.core.cucumber.keyword.internal.CucumberDriverCleaner())
 
 
-RunConfiguration.setExecutionSettingFile('/var/folders/2j/_1868sm54yddf8_9xf0k3qrw0000gn/T/Katalon/Test Cases/S3Sample/20181104_093210/execution.properties')
+RunConfiguration.setExecutionSettingFile('/var/folders/2j/_1868sm54yddf8_9xf0k3qrw0000gn/T/Katalon/Test Cases/GradleRunCaller/20181105_190215/execution.properties')
 
 TestCaseMain.beforeStart()
 
-        TestCaseMain.runTestCase('Test Cases/S3Sample', new TestCaseBinding('Test Cases/S3Sample',[:]), FailureHandling.STOP_ON_FAILURE , false)
+        TestCaseMain.runTestCase('Test Cases/GradleRunCaller', new TestCaseBinding('Test Cases/GradleRunCaller',[:]), FailureHandling.STOP_ON_FAILURE , false)
     
