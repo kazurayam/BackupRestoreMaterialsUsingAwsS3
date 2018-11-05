@@ -10,6 +10,8 @@ public class App {
         App app = new App();
         if (args.length > 0) {
             System.out.println(app.sayHelloTo(args[0]));
+        } else {
+            System.out.println("Hello, world!");
         }
     }
 

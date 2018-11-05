@@ -9,6 +9,8 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'application'
 
+mainClassName = 'com.kazurayam.materials.awsclient.App'
+
 group = 'com.kazurayam'
 //artifact = 'Materials'
 version = '0.1.0'
