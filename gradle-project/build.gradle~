@@ -4,10 +4,12 @@
  * This is a general purpose Gradle build.
  * Learn how to create Gradle builds at https://guides.gradle.org/creating-new-gradle-builds/
  */
-apply plugin: 'groovy'
+apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
-apply plugin: 'jacoco'
+apply plugin: 'application'
+
+mainClassName = 'com.kazurayam.materials.awsclient.App'
 
 group = 'com.kazurayam'
 //artifact = 'Materials'
@@ -17,9 +19,9 @@ sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
 
 ext {
-    groovyVersion  = '2.4.9'
-    logbackVersion = '1.1.2'
-    slf4jVersion   = '1.7.7'
+//    groovyVersion  = '2.4.9'
+//    logbackVersion = '1.1.2'
+//    slf4jVersion   = '1.7.7'
 }
 
 repositories {
@@ -28,10 +30,11 @@ repositories {
 }
 
 dependencies {
-    compile "com.codehaus.groovy:groovy-all:${groovyVersion}"
-    compile group: 'ch.qos.logback', name: 'logback-classic', version: "${logbackVersion}"
-    compile group: 'ch.qos.logback', name: 'logback-core', version: "${logbackVersion}"
-    testCompile group: 'org.spockframework', name: 'spock-core', version: '1.1-groovy-2.4'
+//    compile "com.codehaus.groovy:groovy-all:${groovyVersion}"
+//    compile group: 'ch.qos.logback', name: 'logback-classic', version: "${logbackVersion}"
+//    compile group: 'ch.qos.logback', name: 'logback-core', version: "${logbackVersion}"
+//    testCompile group: 'org.spockframework', name: 'spock-core', version: '1.1-groovy-2.4'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
 def defaultEncoding = 'UTF-8'
@@ -39,13 +42,13 @@ tasks.withType(AbstractCompile).each { it.options.encoding = defaultEncoding }
 tasks.withType(GroovyCompile).each   { it.groovyOptions.encoding = defaultEncoding }
 
 test {
-    include '**/awsclient/*Spec.class'
-    finalizedBy jacocoTestReport
+    include '**/awsclient/*Test.class'
+//    finalizedBy jacocoTestReport
     outputs.upToDateWhen { false }
 }
 
 task pinpoint(type: Test) {
-    include '**/awsclient/AppSpec.class'
+    include '**/awsclient/AppTest.class'
     outputs.upToDateWhen { false }
 }
 
