@@ -18,23 +18,25 @@ version = '0.1.0'
 sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
 
-ext {
-//    groovyVersion  = '2.4.9'
-//    logbackVersion = '1.1.2'
-//    slf4jVersion   = '1.7.7'
-}
-
 repositories {
-    //jcenter()
+    jcenter()
     mavenLocal()
 }
 
+ext {
+    logbackVersion = '1.2.3'
+    slf4jVersion   = '1.7.2'
+}
+
 dependencies {
-//    compile "com.codehaus.groovy:groovy-all:${groovyVersion}"
-//    compile group: 'ch.qos.logback', name: 'logback-classic', version: "${logbackVersion}"
-//    compile group: 'ch.qos.logback', name: 'logback-core', version: "${logbackVersion}"
     compile 'com.amazonaws:aws-java-sdk:1.9.6'
-//    testCompile group: 'org.spockframework', name: 'spock-core', version: '1.1-groovy-2.4'
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+    compile group: 'org.slf4j', name: 'slf4j-api', version: "${slf4jVersion}"
+    // https://mvnrepository.com/artifact/ch.qos.logback/logback-classic
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: "${logbackVersion}"
+    // https://mvnrepository.com/artifact/ch.qos.logback/logback-core
+    compile group: 'ch.qos.logback', name: 'logback-core', version: "${logbackVersion}"
+
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
@@ -43,13 +45,12 @@ tasks.withType(AbstractCompile).each { it.options.encoding = defaultEncoding }
 tasks.withType(GroovyCompile).each   { it.groovyOptions.encoding = defaultEncoding }
 
 test {
-    include '**/awsclient/*Test.class'
-//    finalizedBy jacocoTestReport
+    include '**/aws/*Test.class'
     outputs.upToDateWhen { false }
 }
 
 task pinpoint(type: Test) {
-    include '**/awsclient/AppTest.class'
+    include '**/aws/S3ClientTest.class'
     outputs.upToDateWhen { false }
 }
 

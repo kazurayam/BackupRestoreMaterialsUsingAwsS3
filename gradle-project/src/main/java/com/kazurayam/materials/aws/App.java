@@ -1,4 +1,4 @@
-package com.kazurayam.materials.awsclient;
+package com.kazurayam.materials.aws;
 
 public class App {
 

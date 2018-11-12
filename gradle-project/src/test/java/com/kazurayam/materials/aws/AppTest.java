@@ -1,4 +1,4 @@
-package com.kazurayam.materials.awsclient;
+package com.kazurayam.materials.aws;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
